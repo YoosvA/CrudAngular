@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col">
+                <h3 class="text-center">Crud ngModel</h3>
+                <table class="table table-hover text-center mt-4">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Borrar</th>
+                            <th>Seleccionar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let articulos of inventario">
+                            <td> {{ articulos.id }}</td>
+                            <td> {{ articulos.nombre }}</td>
+                            <td> {{ articulos.precio }}</td>
+                            <td><button (click)="eliminar(articulos.id)" class="btn btn-danger">Borrar</button></td>
+                            <td><button (click)="seleccionar(articulos)" class="btn btn-success">Seleccionar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <p>
+                        <label for="id">Id</label>
+                        <input type="number" [(ngModel)]="formulario.id" class="form-control">
+                    </p>
+                    <p>
+                        <label for="nombre">Nombre</label>
+                        <input type="text" [(ngModel)]="formulario.nombre" class="form-control">
+                    </p>
+                    <p>
+                        <label for="precio">Precio</label>
+                        <input type="number" [(ngModel)]="formulario.precio" class="form-control">
+                    </p>
+        
+                    <button (click)="agregar()" class="btn btn-primary">Agregar</button>
+                    <button (click)="editar(formulario.id)" class="btn btn-warning ms-2">Editar</button>
+                </div>
+              </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
